@@ -1,0 +1,123 @@
+{% extends 'guidance/index.html' %}
+{% block content %}
+{% load static %}
+<section class="slider-area slider-area2">
+  <div class="slider-active">
+      <!-- Single Slider -->
+      <div class="single-slider slider-height2">
+          <div class="container">
+              <div class="row">
+                  <div class="col-xl-8 col-lg-11 col-md-12">
+                      <div class="hero__caption hero__caption2">
+                          <h1 data-animation="bounceIn" data-delay="0.2s">Details us</h1>
+                          <!-- breadcrumb Start-->
+                          <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                  <li class="breadcrumb-item"><a href="#">Details</a></li> 
+                              </ol>
+                          </nav>
+                          <!-- breadcrumb End -->
+                      </div>
+                  </div>
+              </div>
+          </div>          
+      </div>
+  </div>
+</section>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">New Job For Applay</h5>
+            <h1>Apply Now</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="contact-form bg-secondary rounded p-5">
+                    <div id="success"></div>
+                        {% for i in data %}
+                        <form action="{% url 'a_add'  %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            <div class="row">
+                                <div name="cname" class="small-8 columns">
+                                    Company Name :-<input type="text"  name="cname" value="{{i.cname }}" >
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div name="pname" class="small-8 columns">
+                                   Vaccancy :- <input type="text"  name="pname" value="{{i.pname }}">
+                                </div>
+                               
+                            </div>
+                            <div class="row">
+                                <div name="amount" class="small-6 columns">
+                                   Salary :- <input type="text"  name="amount" value="{{i.amount }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div name="qua" class="small-6 columns">
+                                  Qualification :- <input type="text"  name="qua" value="{{i.qua}}">
+                                </div>
+                               
+                            </div>
+                            <div name="quan" class="row">
+                                <div class="small-6 columns">
+                                   Knowledge :- <input type="text"  name="quan" value="{{i.quan}}">
+                                </div>
+                               
+                            </div>
+                            <div class="row">
+                                <div name="place" class="small-12 columns">
+                                   Location :- <input type="text"  name="place" value="{{i.place }}">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12 mb-3 mb-md-0">
+                                  <label class="text-black" >Upload CV</label></br>
+                                  <input type="file"  name="cv" id="cv1" >
+                                </div>
+                            </div>
+                            <div class="row form-group mb-4">
+                                <div class="col-md-12 mb-3 mb-md-0">
+                                  <div class="form-check form-check-inline">
+                                  
+                                    <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                                    
+                                    <label class="form-check-label" for="male">Male</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                                    <label class="form-check-label" for="female">Female</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="custom" value="custom">
+                                    <label class="form-check-label" for="custom">Custom</label>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <input type="text" name="sname" placeholder="Candidate Name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <input type="text" name="ex" placeholder="Fresher/Not">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <input type="submit" class="btn-success" value="Confrim to Apply">
+                                </div>
+                            </div>
+                        </form>
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

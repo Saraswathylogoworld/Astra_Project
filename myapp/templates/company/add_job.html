@@ -1,0 +1,96 @@
+{% extends 'company/CIndex.html' %}
+{% block content %}
+
+<!-- Header Start -->
+<div class="container-fluid page-header" style="margin-bottom: 90px;">
+    <div class="container">
+        <div class="d-flex flex-column justify-content-center" style="min-height: 300px">
+            <h3 class="display-4 text-white text-uppercase">Post</h3>
+            <div class="d-inline-flex text-white">
+                <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">Job Post</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+
+<!-- Contact Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">New Job Post</h5>
+            <h1>Job For All Category</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact-form bg-secondary rounded p-5">
+                    <div id="success"></div>
+                    <form  action="{% url 'c_add' %}"  method="post" enctype="multipart/form-data" id="generatePDF">
+                        {% csrf_token %}
+                        <div class="text-center" id="generatePDF">
+                            <div class="control-group">
+                                <input type="text" class="form-control border-0 p-4" name="cname" id="cname" placeholder="Company Name" required="required"  />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control border-0 p-4" name="place" id="place" placeholder="Company Located" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control border-0 p-4" name="pname" id="pname" placeholder="Post Name" required="required"  />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control border-0 p-4" name="qua" id="qua" placeholder="Qualification" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="number" class="form-control border-0 p-4" name="amount" id="amount" placeholder="Salary" required="required"  />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control border-0 p-4" name="quan" id="Quality" placeholder="Eligibility" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control border-0 p-4" name="ex" id="ex" placeholder="Experience/Fresher" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="number" class="form-control border-0 p-4" name="vaccancy" id="vaccancy" placeholder="Vaccancy" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="file" class="form-control border-0 p-4" name="img" id="img" placeholder="Company image" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea class="form-control border-0 py-3 px-4" rows="5" name="des" id="des" placeholder="Description" required="required" ></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            
+                            <button class="btn btn-primary py-3 px-5"  type="submit" onclick="generatePDF()" id="pdfButton" value="Submit">Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+<script>
+    var button = document.getElementById("pdfButton");
+    var makepdf = document.getElementById("generatePDF");
+    button.addEventListener("click", function () {
+       var mywindow = window.open("", "PRINT", "height=600,width=600");
+       mywindow.document.write(makepdf.innerHTML);
+       mywindow.document.close();
+       mywindow.focus();
+       mywindow.print();
+       return true;
+    });
+ </script>
+{% endblock %}

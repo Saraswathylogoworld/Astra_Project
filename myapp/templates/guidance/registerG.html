@@ -1,0 +1,152 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Courses | Education</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'staticG/assets/img/favicon.ico' %}">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/progressbar_barfiller.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/animated-headline.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'staticG/assets/css/style.css' %}">
+    
+</head>
+
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="{% static 'staticG/assets/img/logo/loder.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start-->
+
+
+    <main class="login-body" data-vide-bg="{% static 'staticG/assets/img/login-bg.mp4' %}">
+        <!-- Login Admin -->
+        <form method="POST" action="{% url 'Gregistersave' %}">
+            {% csrf_token %}
+            <div class="login-form">
+                <!-- logo-login -->
+                <div class="logo-login">
+                    <a href="index.html"><img src="{% static 'staticG/assets/img/logo/loder.png' %}" alt=""></a>
+                </div>
+                
+                <h2 class="form-title">GUIDANCE REGISTRATION</h2>
+                <div class="form-input">
+                    <label for="name">Institution Name</label>
+                    <input type="text" name="fname" id="name" REQUIRED />
+                </div>
+                <div class="form-input">
+                    <label for="email">Email</label>
+                    <input type="email" name="fmail" id="email" REQUIRED/>
+                </div>
+                <div class="form-input">
+                    <label for="pass">Password</label>
+                    <input type="password" name="fpassword" id="pass" REQUIRED/>
+                </div>
+                <div class="form-input">
+                    <label for="re-pass">Re Password</label>
+                    <input type="password" name="re_pass" id="re_pass" REQUIRED/>
+                </div>
+                <div class="form-input">
+                    <label for="course">Course</label>
+                    <input type="text" name="fcourse" id="course" REQUIRED/>  
+                </div>
+                <div class="form-input">
+                    <label for="year">Year</label>
+                    <input type="number" name="fyear" id="year" REQUIRED/>  
+                </div>
+                <div class="form-input">
+                    <label for="number">Phone Number</label>
+                    <input type="text" name="fnumber" id="number" REQUIRED/>
+                </div>
+                
+            
+                <div class="form-input pt-30">
+                    <input type="submit" name="submit" value="login">
+                </div>
+                
+                <!-- Forget Password -->
+                <a href="#" class="forget">Forget Password</a>
+                <!-- Forget Password -->
+                <a class="txt2" href="{% url 'home1' %}">
+                    Already have an account?
+                </a>
+                <!-- <a href="{% url 'login2' %}" class="registration">LOGIN</a> -->
+            </div>
+        </form>
+        
+        
+        <!-- /end login form -->
+    </main>
+
+
+    <script src="{% static 'staticG/assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{% static 'staticG/assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/bootstrap.min.js' %}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{% static 'staticG/assets/js/jquery.slicknav.min.js' %}"></script>
+
+    <!-- Video bg -->
+    <script src="{% static 'staticG/assets/js/jquery.vide.js' %}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="{% static 'staticG/assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/slick.min.js' %}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="{% static 'staticG/assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/animated.headline.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/jquery.magnific-popup.js' %}"></script>
+
+    <!-- Date Picker -->
+    <script src="{% static 'staticG/assets/js/gijgo.min.js' %}"></script>
+    <!-- Nice-select, sticky -->
+    <script src="{% static 'staticG/assets/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/jquery.sticky.js' %}"></script>
+    <!-- Progress -->
+    <script src="{% static 'staticG/assets/js/jquery.barfiller.js' %}"></script>
+    
+    <!-- counter , waypoint,Hover Direction -->
+    <script src="{% static 'staticG/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/hover-direction-snake.min.js' %}"></script>
+
+    <!-- contact js -->
+    <script src="{% static 'staticG/assets/js/contact.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/jquery.form.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/mail-script.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/jquery.ajaxchimp.min.js' %}"></script>
+    
+    <!-- Jquery Plugins, main Jquery -->	
+    <script src="{% static 'staticG/assets/js/plugins.js' %}"></script>
+    <script src="{% static 'staticG/assets/js/main.js' %}"></script>
+    
+    </body>
+</html>
+       

@@ -1,0 +1,50 @@
+{% extends 'admin/adminindex.html' %}
+{% block content %}
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Placement Details Table</h4>
+                    <p class="card-description">
+                      Add class <code>table</code>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Student Profile</th>
+                            <th>Student Name</th>
+                            <th>Mobile</th>
+                            <th>Email</th>
+                            <th>Location</th>
+                            <th>Company Name</th>
+                            <th>Placed Year</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in data %}
+                          <tr>
+                            <td><img src="{{i.img.url}}" width="100" height="100"></td>
+                            <td>{{i.sname}}</td>
+                            <td>{{i.number}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.location}}</td>
+                            <td>{{i.cname}}</td>
+                            <td>{{i.year}}</td>
+                            <td><label class="badge badge-danger">Placed</label></td>
+                          </tr>
+                        {% endfor %}
+                        
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,87 @@
+{% extends 'guidance/index.html' %}
+{% block content %}
+{% load static %}
+<section class="slider-area slider-area2">
+  <div class="slider-active">
+      <!-- Single Slider -->
+      <div class="single-slider slider-height2">
+          <div class="container">
+              <div class="row">
+                  <div class="col-xl-8 col-lg-11 col-md-12">
+                      <div class="hero__caption hero__caption2">
+                          <h1 data-animation="bounceIn" data-delay="0.2s">Details us</h1>
+                          <!-- breadcrumb Start-->
+                          <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                  <li class="breadcrumb-item"><a href="#">Details</a></li> 
+                              </ol>
+                          </nav>
+                          <!-- breadcrumb End -->
+                      </div>
+                  </div>
+              </div>
+          </div>          
+      </div>
+  </div>
+</section>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">New Job Post</h5>
+            <h1>Job For All Category</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact-form bg-secondary rounded p-5">
+                    <div id="success"></div>
+                    <form  action="{% url 'ga_add' %}"  method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="control-group">
+                            <input type="text" class="form-control border-0 p-4" name="gname" id="gname" placeholder="Guidance Name" required="required"  />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control border-0 p-4" name="place" id="place" placeholder="Guidance Located" required="required" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control border-0 p-4" name="qua" id="qua" placeholder="Qualification" required="required" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="number" class="form-control border-0 p-4" name="rfee" id="rfee" placeholder="Registration Fee" required="required"  />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control border-0 p-4" name="quan" id="knowledge" placeholder="Knowledge" required="required" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="number" class="form-control border-0 p-4" name="number" id="number" placeholder="Contact Number" required="required"  />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control border-0 p-4" name="ctime" id="ctime" placeholder="Class Time" required="required"  />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="file" class="form-control border-0 p-4" name="img" id="img" placeholder="Guidance image" required="required" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <textarea class="form-control border-0 py-3 px-4" rows="5" name="des" id="des" placeholder="Description" required="required" ></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-primary py-3 px-5" type="submit" >Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

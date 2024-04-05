@@ -1,0 +1,85 @@
+{% extends 'company/CIndex.html' %}
+{% block content %}
+<!-- Header Start -->
+<div class="container-fluid page-header" style="margin-bottom: 90px;">
+    <div class="container">
+        <div class="d-flex flex-column justify-content-center" style="min-height: 300px">
+            <h3 class="display-4 text-white text-uppercase">Post</h3>
+            <div class="d-inline-flex text-white">
+                <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">Job Post</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+
+<!-- Contact Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">New Job Post</h5>
+            <h1>Job For All Category</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact-form bg-secondary rounded p-5">
+                    <div id="success"></div>
+                    {% for i in data %}
+                    <form  action="{% url 'c_update' c_id=i.id %}"  method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="control-group">
+                            <input type="text" class="form-control border-0 p-4" value="{{i.cname}}" name="cname" id="cname" placeholder="Company Name" required="required" data-validation-required-message="Please enter Company Name" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control border-0 p-4" value="{{i.place}}" name="place" id="place" placeholder="Company Located" required="required" data-validation-required-message="Please enter Company Located" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control border-0 p-4" value="{{i.pname}}" name="pname" id="pname" placeholder="Post Name" required="required" data-validation-required-message="Please enter Post Name" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control border-0 p-4" name="qua" value="{{i.qua}}" id="qua" placeholder="Qualification" required="required" data-validation-required-message="Please enter Qualification" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="number" class="form-control border-0 p-4" value="{{i.amount}}" name="amount" id="amount" placeholder="Salary" required="required" data-validation-required-message="Please enter Salary" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control border-0 p-4" value="{{i.quan}}" name="quan" id="Quality" placeholder="Eligibility" required="required" data-validation-required-message="Please enter a Eligibility" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control border-0 p-4" value="{{i.ex}}" name="ex" id="ex" placeholder="Experience/Fresher" required="required" data-validation-required-message="Please enter Experience Or Fresher" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="number" class="form-control border-0 p-4" value="{{i.vaccancy}}" name="vaccancy" id="vaccancy" placeholder="Vaccancy" required="required" data-validation-required-message="Please enter number of Vaccancy" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="file" class="form-control border-0 p-4" value="{{i.img}}" name="img" id="img" placeholder="Company image" data-validation-required-message="Please Upload Company image" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <textarea class="form-control border-0 py-3 px-4" rows="5" value="{{i.des}}" name="des" id="des" placeholder="Description" >{{i.des}}</textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-primary py-3 px-5" type="submit" >POST</button>
+                        </div>
+                    </form>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+
+{% endblock %}
